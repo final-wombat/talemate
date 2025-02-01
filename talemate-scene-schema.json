@@ -1,0 +1,187 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "description": {
+      "type": "string"
+    },
+    "intro": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer"
+          },
+          "typ": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          }
+        },
+        "required": ["message", "id", "typ", "source"]
+      }
+    },
+    "environment": {
+      "type": "string"
+    },
+    "archived_history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "ts": {
+            "type": "string"
+          }
+        },
+        "required": ["text", "ts"]
+      }
+    },
+    "character_states": {
+      "type": "object"
+    },
+    "characters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "greeting_text": {
+            "type": "string"
+          },
+          "base_attributes": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            }
+          },
+          "details": {
+            "type": "object"
+          },
+          "gender": {
+            "type": "string"
+          },
+          "color": {
+            "type": "string"
+          },
+          "example_dialogue": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "history_events": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "is_player": {
+            "type": "boolean"
+          },
+          "cover_image": {
+            "type": ["string", "null"]
+          }
+        },
+        "required": ["name", "description", "greeting_text", "base_attributes", "details", "gender", "color", "example_dialogue", "history_events", "is_player", "cover_image"]
+      }
+    },
+    "goal": {
+      "type": ["string", "null"]
+    },
+    "goals": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "context": {
+      "type": "string"
+    },
+    "world_state": {
+      "type": "object",
+      "properties": {
+        "characters": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "snapshot": {
+                "type": ["string", "null"]
+              },
+              "emotion": {
+                "type": "string"
+              }
+            },
+            "required": ["snapshot", "emotion"]
+          }
+        },
+        "items": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "snapshot": {
+                "type": ["string", "null"]
+              }
+            },
+            "required": ["snapshot"]
+          }
+        },
+        "location": {
+          "type": ["string", "null"]
+        }
+      },
+      "required": ["characters", "items", "location"]
+    },
+    "assets": {
+      "type": "object",
+      "properties": {
+        "cover_image": {
+          "type": "string"
+        },
+        "assets": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "file_type": {
+                "type": "string"
+              },
+              "media_type": {
+                "type": "string"
+              }
+            },
+            "required": ["id", "file_type", "media_type"]
+          }
+        }
+      },
+      "required": ["cover_image", "assets"]
+    },
+    "ts": {
+      "type": "string"
+    }
+  },
+  "required": ["description", "intro", "name", "history", "environment", "archived_history", "character_states", "characters", "context", "world_state", "assets", "ts"]
+}
